@@ -3,16 +3,12 @@ package ru.magenta.task.util;
 import org.springframework.stereotype.Component;
 import ru.magenta.task.entity.City;
 
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 @Component
 public class CitiesDistance {
-    public float distFrom(City from, City to) {
+    public static float distFrom(City from, City to) {
 
         float lat1 = from.getLatitude();
         float lng1 = from.getLongitude();
@@ -32,7 +28,7 @@ public class CitiesDistance {
         return dist;
     }
 
-    public List<Float> distFrom(List<City> from, List<City> to) {
+    public static List<Float> distFrom(List<City> from, List<City> to) {
         List<Float> result = new ArrayList<>();
         for (int i = 0; i < from.size(); i++)
             result.add(distFrom(from.get(i), to.get(i)));
